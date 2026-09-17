@@ -1,5 +1,5 @@
 {
-  "name": "use-offline",
+  "name": "react-uplink",
   "version": "0.1.0",
   "description": "Accurate, SSR-safe React hook for detecting real network connectivity — not just navigator.onLine.",
   "type": "module",
@@ -28,8 +28,16 @@
     "connectivity",
     "navigator.onLine"
   ],
-  "author": "",
+  "author": "eze arinze",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_GITHUB_USERNAME/react-uplink.git"
+  },
+  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/react-uplink#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/react-uplink/issues"
+  },
   "peerDependencies": {
     "react": ">=16.8.0"
   },
@@ -47,7 +55,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build"
+    "prepublishOnly": "pnpm run typecheck && pnpm run test && pnpm run build"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",

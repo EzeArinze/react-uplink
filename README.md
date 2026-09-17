@@ -1,4 +1,4 @@
-# use-offline
+# react-uplink
 
 Accurate, SSR-safe React hook for detecting real network connectivity — not
 just `navigator.onLine`.
@@ -13,7 +13,7 @@ debouncing so a single dropped packet doesn't flip your UI.
 ## Install
 
 ```bash
-npm install use-offline
+npm install react-uplink
 ```
 
 React 16.8+ is a peer dependency (hooks are required; it is not bundled).
@@ -23,7 +23,7 @@ React 16.8+ is a peer dependency (hooks are required; it is not bundled).
 ### Zero-config (navigator.onLine only)
 
 ```tsx
-import { useOffline } from 'use-offline';
+import { useOffline } from 'react-uplink';
 
 function App() {
   const { isOnline } = useOffline();
@@ -168,7 +168,7 @@ dev toolchain (`tsdown`, `vitest`) requires **Node `^22.18.0 || ^24.11.0
 
 ```bash
 pnpm install
-pnpm typecheck
-pnpm test
-pnpm build
+pnpm run typecheck
+pnpm run test
+pnpm run build
 ```
