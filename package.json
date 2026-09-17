@@ -1,19 +1,59 @@
 {
   "name": "use-offline",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Accurate, SSR-safe React hook for detecting real network connectivity — not just navigator.onLine.",
   "type": "module",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "hook",
+    "offline",
+    "online",
+    "network",
+    "connectivity",
+    "navigator.onLine",
+    "pwa"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    }
+  },
+  "engines": {
+    "node": ">=16"
   },
   "scripts": {
-    "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -22,6 +62,8 @@
     "jsdom": "^30.0.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "tsdown": "^0.23.0",
+    "tsup": "^8.5.1",
     "typescript": "^7.0.2",
     "vitest": "^5.0.1"
   }
