@@ -142,4 +142,4 @@ interface OfflineStatus {
 export declare function useOffline(options?: UseOfflineOptions): OfflineStatus;
 //#endregion
 export type { OfflineStatus, UseOfflineOptions };
-//# sourceMappingURL=index.d.mts.map
+//# sourceMappingURL=index.d.ts.map

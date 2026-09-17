@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useSyncExternalStore } from "react";
+
 //#region src/ping.ts
 /**
 * Performs a single connectivity check and resolves to true/false.
@@ -33,6 +34,7 @@ async function performPing(config, fetchImpl = fetch) {
 		clearTimeout(timeoutId);
 	}
 }
+
 //#endregion
 //#region src/utils/jitter.ts
 /**
@@ -64,6 +66,7 @@ function computeBackoffDelay(attempt, baseDelayMs = 2e3, capMs = 3e4) {
 	const exponential = baseDelayMs * Math.pow(2, Math.max(1, attempt) - 1);
 	return applyJitter(Math.min(exponential, capMs), .2);
 }
+
 //#endregion
 //#region src/utils/isBrowser.ts
 function isBrowser() {
@@ -82,6 +85,7 @@ function isDocumentHidden() {
 	if (typeof document === "undefined") return false;
 	return typeof document.hidden === "boolean" ? document.hidden : false;
 }
+
 //#endregion
 //#region src/createOfflineStore.ts
 const DEFAULTS = {
@@ -95,17 +99,18 @@ const DEFAULTS = {
 	pauseWhenHidden: true
 };
 function resolveConfig(options) {
+	var _options$pingMethod, _options$pingCredenti, _options$pingInterval, _options$timeout, _options$failureThres, _options$successThres, _options$verifyOnBrow, _options$pauseWhenHid;
 	return {
 		pingUrl: options.pingUrl,
 		pingFn: options.pingFn,
-		pingMethod: options.pingMethod ?? DEFAULTS.pingMethod,
-		pingCredentials: options.pingCredentials ?? DEFAULTS.pingCredentials,
-		pingInterval: options.pingInterval ?? DEFAULTS.pingInterval,
-		timeout: options.timeout ?? DEFAULTS.timeout,
-		failureThreshold: options.failureThreshold ?? DEFAULTS.failureThreshold,
-		successThreshold: options.successThreshold ?? DEFAULTS.successThreshold,
-		verifyOnBrowserOnlineEvent: options.verifyOnBrowserOnlineEvent ?? DEFAULTS.verifyOnBrowserOnlineEvent,
-		pauseWhenHidden: options.pauseWhenHidden ?? DEFAULTS.pauseWhenHidden
+		pingMethod: (_options$pingMethod = options.pingMethod) !== null && _options$pingMethod !== void 0 ? _options$pingMethod : DEFAULTS.pingMethod,
+		pingCredentials: (_options$pingCredenti = options.pingCredentials) !== null && _options$pingCredenti !== void 0 ? _options$pingCredenti : DEFAULTS.pingCredentials,
+		pingInterval: (_options$pingInterval = options.pingInterval) !== null && _options$pingInterval !== void 0 ? _options$pingInterval : DEFAULTS.pingInterval,
+		timeout: (_options$timeout = options.timeout) !== null && _options$timeout !== void 0 ? _options$timeout : DEFAULTS.timeout,
+		failureThreshold: (_options$failureThres = options.failureThreshold) !== null && _options$failureThres !== void 0 ? _options$failureThres : DEFAULTS.failureThreshold,
+		successThreshold: (_options$successThres = options.successThreshold) !== null && _options$successThres !== void 0 ? _options$successThres : DEFAULTS.successThreshold,
+		verifyOnBrowserOnlineEvent: (_options$verifyOnBrow = options.verifyOnBrowserOnlineEvent) !== null && _options$verifyOnBrow !== void 0 ? _options$verifyOnBrow : DEFAULTS.verifyOnBrowserOnlineEvent,
+		pauseWhenHidden: (_options$pauseWhenHid = options.pauseWhenHidden) !== null && _options$pauseWhenHid !== void 0 ? _options$pauseWhenHid : DEFAULTS.pauseWhenHidden
 	};
 }
 function hasActiveVerification(config) {
@@ -255,6 +260,7 @@ var OfflineStore = class {
 		for (const listener of this.listeners) listener();
 	}
 };
+
 //#endregion
 //#region src/useOffline.ts
 /**
@@ -273,17 +279,18 @@ var OfflineStore = class {
 */
 const storeRegistry = /* @__PURE__ */ new Map();
 function configKey(options) {
+	var _options$pingUrl, _options$pingMethod, _options$pingCredenti, _options$pingInterval, _options$timeout, _options$failureThres, _options$successThres, _options$verifyOnBrow, _options$pauseWhenHid;
 	if (options.pingFn) return `pingFn:${getFnId(options.pingFn)}`;
 	return JSON.stringify({
-		pingUrl: options.pingUrl ?? null,
-		pingMethod: options.pingMethod ?? null,
-		pingCredentials: options.pingCredentials ?? null,
-		pingInterval: options.pingInterval ?? null,
-		timeout: options.timeout ?? null,
-		failureThreshold: options.failureThreshold ?? null,
-		successThreshold: options.successThreshold ?? null,
-		verifyOnBrowserOnlineEvent: options.verifyOnBrowserOnlineEvent ?? null,
-		pauseWhenHidden: options.pauseWhenHidden ?? null
+		pingUrl: (_options$pingUrl = options.pingUrl) !== null && _options$pingUrl !== void 0 ? _options$pingUrl : null,
+		pingMethod: (_options$pingMethod = options.pingMethod) !== null && _options$pingMethod !== void 0 ? _options$pingMethod : null,
+		pingCredentials: (_options$pingCredenti = options.pingCredentials) !== null && _options$pingCredenti !== void 0 ? _options$pingCredenti : null,
+		pingInterval: (_options$pingInterval = options.pingInterval) !== null && _options$pingInterval !== void 0 ? _options$pingInterval : null,
+		timeout: (_options$timeout = options.timeout) !== null && _options$timeout !== void 0 ? _options$timeout : null,
+		failureThreshold: (_options$failureThres = options.failureThreshold) !== null && _options$failureThres !== void 0 ? _options$failureThres : null,
+		successThreshold: (_options$successThres = options.successThreshold) !== null && _options$successThres !== void 0 ? _options$successThres : null,
+		verifyOnBrowserOnlineEvent: (_options$verifyOnBrow = options.verifyOnBrowserOnlineEvent) !== null && _options$verifyOnBrow !== void 0 ? _options$verifyOnBrow : null,
+		pauseWhenHidden: (_options$pauseWhenHid = options.pauseWhenHidden) !== null && _options$pauseWhenHid !== void 0 ? _options$pauseWhenHid : null
 	});
 }
 const fnIds = /* @__PURE__ */ new WeakMap();
@@ -358,7 +365,7 @@ function useOffline(options = {}) {
 function configKeyStable(options) {
 	return configKey(options);
 }
+
 //#endregion
 export { useOffline };
-
-//# sourceMappingURL=index.mjs.map
+//# sourceMappingURL=index.js.map

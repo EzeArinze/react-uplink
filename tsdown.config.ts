@@ -1,3 +1,14 @@
+// import { defineConfig } from 'tsdown';
+
+// export default defineConfig({
+//   entry: ['src/index.ts'],
+//   format: ['esm', 'cjs'],
+//   dts: true,
+//   sourcemap: true,
+//   clean: true,
+//   external: ['react'],
+// });
+
 import { defineConfig } from 'tsdown';
 
 export default defineConfig({
@@ -6,5 +17,10 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-  external: ['react'],
+  minify: false,
+  treeshake: true,
+  deps: { neverBundle: ['react'] },
+  target: 'es2019',
+  platform: 'browser',
+  outDir: 'dist',
 });
