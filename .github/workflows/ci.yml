@@ -12,9 +12,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # tsdown and vitest require ^22.18.0 || ^24.11.0 || >=26.0.0 —
-        # keep this in sync with package.json's devDependencies if that
-        # range changes.
         node: [22, 24]
 
     steps:
@@ -23,8 +20,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        # version is read from package.json's "packageManager" field —
-        # no version pinned here, so it can't drift out of sync with it.
 
       - name: Setup Node ${{ matrix.node }}
         uses: actions/setup-node@v4
