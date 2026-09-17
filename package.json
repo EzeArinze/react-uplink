@@ -32,11 +32,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_GITHUB_USERNAME/react-uplink.git"
+    "url": "git+https://github.com/EzeArinze/react-uplink.git"
   },
-  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/react-uplink#readme",
+  "homepage": "https://github.com/EzeArinze/react-uplink#readme",
   "bugs": {
-    "url": "https://github.com/YOUR_GITHUB_USERNAME/react-uplink/issues"
+    "url": "https://github.com/EzeArinze/react-uplink/issues"
   },
   "peerDependencies": {
     "react": ">=16.8.0"

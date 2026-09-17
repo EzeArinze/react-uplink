@@ -5,6 +5,14 @@ on:
   push:
     branches: [main]
 
+# Least-privilege default: this workflow only reads the repo and runs
+# checks — it never needs to write anything (no releases, no comments,
+# no pushes). Being explicit here means a fork PR can't get more than
+# read access even if the org's default GITHUB_TOKEN permissions are
+# broader.
+permissions:
+  contents: read
+
 jobs:
   verify:
     name: Node ${{ matrix.node }}
@@ -16,16 +24,15 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup pnpm + Node ${{ matrix.node }}
+        uses: pnpm/setup@v1
 
-      - name: Setup Node ${{ matrix.node }}
-        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
-          cache: pnpm
+          runtime: node@${{ matrix.node }}
+          cache: true
+          install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
