@@ -1,19 +1,7 @@
-/**
- * True only when running in an environment with a real browser window
- * (i.e. not during SSR/SSG in Next.js, Remix, etc.).
- *
- * Guard every access to `window`, `navigator`, or `document` in the
- * store with this — those globals do not exist during server rendering.
- */
 export function isBrowser(): boolean {
   return typeof window !== "undefined" && typeof navigator !== "undefined";
 }
 
-/**
- * Safe read of navigator.onLine. Returns `true` as a conservative
- * default when not in a browser (assume online rather than showing a
- * false "offline" banner during SSR, before the client can verify).
- */
 export function getRawBrowserOnline(): boolean {
   if (!isBrowser()) return true;
   // navigator.onLine is undefined in a handful of very old/non-standard
