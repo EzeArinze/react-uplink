@@ -1,2 +1,2 @@
 export { useOffline } from './useOffline';
-export type { UseOfflineOptions, OfflineStatus } from './types';
+export type { UseOfflineOptions, OfflineStatus } from './types/types';

@@ -1,7 +1,7 @@
 import { useMemo, useRef, useEffect, useCallback } from 'react';
 import { useSyncExternalStore } from 'react';
 import { OfflineStore } from './createOfflineStore';
-import type { OfflineStatus, UseOfflineOptions } from './types';
+import type { OfflineStatus, UseOfflineOptions } from './types/types';
 import { isBrowser } from './utils/isBrowser';
 
 /**

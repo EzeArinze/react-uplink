@@ -3,7 +3,7 @@ import type {
   OfflineState,
   ResolvedOfflineConfig,
   UseOfflineOptions,
-} from './types';
+} from './types/types';
 import { performPing, type FetchImpl } from './ping';
 import { applyJitter, computeBackoffDelay } from './utils/jitter';
 import { isBrowser, getRawBrowserOnline, isDocumentHidden } from './utils/isBrowser';

@@ -158,3 +158,17 @@ request (a WebSocket ping, a GraphQL query), use `pingFn` instead of
 ## License
 
 MIT
+
+## Contributing
+
+Consuming the published package has no Node version requirement — the
+built output is plain ES2019 JavaScript. Building from source does: the
+dev toolchain (`tsdown`, `vitest`) requires **Node `^22.18.0 || ^24.11.0
+|| >=26.0.0`**.
+
+```bash
+pnpm install
+pnpm typecheck
+pnpm test
+pnpm build
+```

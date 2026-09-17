@@ -1,4 +1,4 @@
-import type { ResolvedOfflineConfig } from './types';
+import type { ResolvedOfflineConfig } from './types/types';
 
 /**
  * Injectable fetch type, defaulting to the global fetch. Exists so tests
